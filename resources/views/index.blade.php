@@ -1,9 +1,15 @@
 @extends('layout.main')
 
 @section('title','Dashboard')
-    
+@section('page','Home')
+
 @section('content')
-    <section class="content">
+    <div class="container">
+        <div class="row col-10">
+            <h1>Selamat Datang,<br>Kang Dadang</h1>
+        </div>
+    </div>
+    {{-- <section class="content">
 
         <!-- Default box -->
         <div class="card">
@@ -26,5 +32,5 @@
         </div>
         <!-- /.card -->
 
-    </section>
+    </section> --}}
 @endsection
