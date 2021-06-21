@@ -18,11 +18,9 @@ class BuatTabelTransaksi extends Migration
             $table->bigIncrements('idTransaksi');
             $table->unsignedBigInteger('idPembeli');
             $table->unsignedBigInteger('user_id');
-            $table->string('slug');
-            $table->string('tipeBarang');
-            $table->longText('deskripsiBarang');
-            $table->integer('hargaBarang');
-            $table->integer('stokBarang');
+            $table->String('statusTransaksi');
+            $table->integer('totalTransaksi');
+            $table->String('slug');
             $table->softDeletes();
             $table->timestamps();
             // $table->primary('idTransaksi');
