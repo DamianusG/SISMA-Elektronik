@@ -13,7 +13,7 @@ class ControllerPembeli extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.pembeli.index');
     }
 
     /**

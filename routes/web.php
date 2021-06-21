@@ -21,6 +21,12 @@ Route::get('/login', function () {
 
 Route::resource('barang','ControllerBarang');
 
+Route::resource('pembeli','ControllerPembeli');
+
+Route::resource('transaksi','ControllerTransaksi');
+
+Route::resource('pegawai','ControllerUser');
+
 Auth::routes(['register'=>false]);
 
 Route::get('logout', 'Auth\LoginController@logout');

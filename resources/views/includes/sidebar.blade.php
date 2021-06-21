@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{ route('pembeli.index') }}" class="nav-link">
               <i class="nav-icon fas fa-child"></i>
               <p>
                 List Pembeli
@@ -47,7 +47,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{ route('transaksi.index') }}" class="nav-link">
               <i class="nav-icon fas fa-cart-plus"></i>
               <p>
                 List Transaksi
@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{ route('pegawai.index') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 List Pegawai
