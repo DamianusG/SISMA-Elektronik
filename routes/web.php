@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('main');
 
 Route::get('/login', function () {
     return view('pages.login');
 });
+
+Route::resource('barang','ControllerBarang');
 
 Auth::routes(['register'=>false]);
 

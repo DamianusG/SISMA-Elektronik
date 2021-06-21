@@ -13,7 +13,7 @@ class ControllerBarang extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.barang.index');
     }
 
     /**

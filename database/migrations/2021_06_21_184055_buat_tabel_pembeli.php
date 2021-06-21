@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatTabelBarang extends Migration
+class BuatTabelPembeli extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class BuatTabelBarang extends Migration
      */
     public function up()
     {
-        Schema::create('barang', function (Blueprint $table) {
+        Schema::create('pembeli', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('idBarang');
-            $table->string('namaBarang');
+            $table->bigIncrements('idPembeli');
+            $table->string('namaPembeli');
             $table->string('slug');
-            $table->string('tipeBarang');
-            $table->longText('deskripsiBarang');
-            $table->integer('hargaBarang');
-            $table->integer('stokBarang');
+            $table->string('noTelp');
+            $table->longText('alamat');
             $table->softDeletes();
             $table->timestamps();
-            // $table->primary('idBarang');
+            // $table->primary('idPembeli');
         });
     }
 
@@ -35,6 +33,6 @@ class BuatTabelBarang extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barang');
+        Schema::dropIfExists('pembeli');
     }
 }
