@@ -17,7 +17,7 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>    
+        <a class="nav-link" href="{{ 'logout' }}"><i class="fa fa-power-off"></i> Logout</a>    
     </ul>
   </nav>
   <!-- /.navbar -->
