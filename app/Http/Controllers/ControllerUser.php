@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Requests\RequestUser;
+// use Illuminate\Support\Str;
 
 class ControllerUser extends Controller
 {
@@ -13,7 +16,10 @@ class ControllerUser extends Controller
      */
     public function index()
     {
-        return view('pages.pegawai.index');
+        $items = User::all();
+        return view('pages.pegawai.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -23,7 +29,7 @@ class ControllerUser extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pegawai.create');
     }
 
     /**
@@ -32,9 +38,12 @@ class ControllerUser extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestUser $request)
     {
-        //
+        $data = $request->all();
+        // $data['slug'] = Str::slug($request->name);
+        User::create($data);
+        return redirect()->route('pegawai.index');
     }
 
     /**

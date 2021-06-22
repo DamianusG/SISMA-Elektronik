@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pembeli;
+use App\Http\Requests\RequestPembeli;
+use Illuminate\Support\Str;
 
 class ControllerPembeli extends Controller
 {
@@ -13,7 +16,10 @@ class ControllerPembeli extends Controller
      */
     public function index()
     {
-        return view('pages.pembeli.index');
+        $items = Pembeli::all();
+        return view('pages.pembeli.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -23,7 +29,7 @@ class ControllerPembeli extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pembeli.create');
     }
 
     /**
@@ -32,9 +38,12 @@ class ControllerPembeli extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestPembeli $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->namaPembeli);
+        Pembeli::create($data);
+        return redirect()->route('pembeli.index');
     }
 
     /**
@@ -56,7 +65,10 @@ class ControllerPembeli extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = Pembeli::findOrFail($id);
+        return view('pages.pembeli.edit')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -66,9 +78,13 @@ class ControllerPembeli extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestPembeli $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->namaBarang);
+        $item = Pembeli::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('pembeli.index');
     }
 
     /**

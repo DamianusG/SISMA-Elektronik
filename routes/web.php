@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('main');
 
-Route::get('/login', function () {
-    return view('pages.login');
-});
+// Route::get('/login', function () {
+//     return view('pages.login');
+// });
 
 Route::resource('barang','ControllerBarang');
 

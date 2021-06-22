@@ -9,7 +9,8 @@ class Transaksi extends Model
 {
     use softDeletes;
     protected $table = 'transaksi';
-    protected $fillable = ['idPembeli','user_id','statusTransaksi','totalTransaksi'];
+    protected $primaryKey = 'idTransaksi';
+    protected $fillable = ['idPembeli','user_id','statusTransaksi','totalTransaksi','slug'];
     protected $hidden = [];
 
     public function barang()

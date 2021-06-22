@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Transaksi;
+use App\Http\Requests\RequestTransaksi;
+use Illuminate\Support\Str;
 
 class ControllerTransaksi extends Controller
 {
@@ -13,7 +16,10 @@ class ControllerTransaksi extends Controller
      */
     public function index()
     {
-        return view('pages.transaksi.index');
+        $items = Transaksi::all();
+        return view('pages.transaksi.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -23,7 +29,7 @@ class ControllerTransaksi extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.transaksi.create');
     }
 
     /**
@@ -32,9 +38,12 @@ class ControllerTransaksi extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestTransaksi $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->idTransaksi);
+        Transaksi::create($data);
+        return redirect()->route('transaksi.index');
     }
 
     /**

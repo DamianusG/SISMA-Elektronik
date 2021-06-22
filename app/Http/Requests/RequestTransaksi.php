@@ -24,8 +24,8 @@ class RequestTransaksi extends FormRequest
     public function rules()
     {
         return [
-            'idPembeli' => 'required|unsignedBigInteger',
-            'user_id' => 'required|unsignedBigInteger',
+            'idPembeli' => 'required|integer',
+            'user_id' => 'required|integer',
             'statusTransaksi' => 'required|max:255',
             'totalTransaksi' => 'required|integer',           
         ];

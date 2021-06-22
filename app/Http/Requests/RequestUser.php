@@ -24,8 +24,8 @@ class RequestUser extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unsignedBigInteger',
-            'idRole' => 'required|unsignedBigInteger',
+            'name' => 'required|max:255',
+            'idRole' => 'required|integer',
             'email' => 'required|max:255',
             'password' => 'required|max:255', 
         ];

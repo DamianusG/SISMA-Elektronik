@@ -9,7 +9,8 @@ class Barang extends Model
 {
     use softDeletes;
     protected $table = 'barang';
-    protected $fillable = ['namaBarang','tipeBarang','deskripsiBarang','hargaBarang','stokBarang'];
+    protected $primaryKey = 'idBarang';
+    protected $fillable = ['namaBarang','tipeBarang','deskripsiBarang','hargaBarang','stokBarang','slug'];
     protected $hidden = [];
 
     public function transaksiB()

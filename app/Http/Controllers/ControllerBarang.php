@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use App\Http\Requests\RequestBarang;
+use Illuminate\Support\Str;
 
 class ControllerBarang extends Controller
 
@@ -37,9 +39,12 @@ class ControllerBarang extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestBarang $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->namaBarang);
+        Barang::create($data);
+        return redirect()->route('barang.index');
     }
 
     /**
@@ -61,7 +66,10 @@ class ControllerBarang extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = Barang::findOrFail($id);
+        return view('pages.barang.edit')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -71,9 +79,13 @@ class ControllerBarang extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestBarang $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->namaBarang);
+        $item = Barang::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('barang.index');
     }
 
     /**
@@ -84,6 +96,8 @@ class ControllerBarang extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = barang::findOrFail($id);
+        $item->delete();
+        return redirect()->route('barang.index');
     }
 }

@@ -9,7 +9,8 @@ class Pembeli extends Model
 {
     use softDeletes;
     protected $table = 'pembeli';
-    protected $fillable = ['namaPembeli','noTelp','alamat'];
+    protected $primaryKey = 'idPembeli';
+    protected $fillable = ['namaPembeli','noTelp','alamat','slug'];
     protected $hidden = [];
 
     public function transaksiP()
