@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Transaksi extends Model
 {
     use softDeletes;
-    protected $fillable = ['idPembeli','user_id','statusTransaksi','totalTransaksi']
+    protected $table = 'transaksi';
+    protected $fillable = ['idPembeli','user_id','statusTransaksi','totalTransaksi'];
     protected $hidden = [];
 
     public function barang()

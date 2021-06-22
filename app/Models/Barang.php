@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Barang extends Model
 {
     use softDeletes;
-    protected $fillable = ['namaBarang','tipeBarang','deskripsiBarang','hargaBarang','stokBarang']
+    protected $table = 'barang';
+    protected $fillable = ['namaBarang','tipeBarang','deskripsiBarang','hargaBarang','stokBarang'];
     protected $hidden = [];
 
     public function transaksiB()

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\softDeletes;
 class User extends Model
 {
     use softDeletes;
-    protected $fillable = ['name','idRole','email','password']
+    protected $fillable = ['name','idRole','email','password'];
     protected $hidden = [];
 
     public function role()

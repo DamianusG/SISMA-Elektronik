@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class ControllerBarang extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,10 @@ class ControllerBarang extends Controller
      */
     public function index()
     {
-        return view('pages.barang.index');
+        $items = Barang::all();
+        return view('pages.barang.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class ControllerBarang extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.barang.create');
     }
 
     /**
