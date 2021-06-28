@@ -96,7 +96,7 @@ class ControllerBarang extends Controller
      */
     public function destroy($id)
     {
-        $item = barang::findOrFail($id);
+        $item = Barang::findOrFail($id);
         $item->delete();
         return redirect()->route('barang.index');
     }

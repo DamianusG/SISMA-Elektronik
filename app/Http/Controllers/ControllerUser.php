@@ -65,7 +65,10 @@ class ControllerUser extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = User::findOrFail($id);
+        return view('pages.pegawai.edit')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -75,9 +78,13 @@ class ControllerUser extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestUser $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->namaBarang);
+        $item = User::findOrFail($id);
+        $item->update($data);
+        return redirect()->route('pegawai.index');
     }
 
     /**
@@ -88,6 +95,8 @@ class ControllerUser extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = User::findOrFail($id);
+        $item->delete();
+        return redirect()->route('pegawai.index');
     }
 }

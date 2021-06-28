@@ -95,6 +95,8 @@ class ControllerPembeli extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Pembeli::findOrFail($id);
+        $item->delete();
+        return redirect()->route('pembeli.index');
     }
 }

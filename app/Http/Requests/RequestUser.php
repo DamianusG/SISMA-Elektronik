@@ -26,7 +26,7 @@ class RequestUser extends FormRequest
         return [
             'name' => 'required|max:255',
             'idRole' => 'required|integer',
-            'email' => 'required|max:255',
+            'email' => 'required|email',
             'password' => 'required|max:255', 
         ];
     }
