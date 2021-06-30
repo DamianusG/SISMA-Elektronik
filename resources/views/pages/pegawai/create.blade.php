@@ -12,7 +12,7 @@
             <div class="form-group">
                 <label for="name" class="form-control-label">Nama Pegawai</label>
                 <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" />
-                @error('name') </div class="text-muted">{{ $message }} </div>@enderror
+                @error('name') <div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
                 <label for="idRole" class="form-control-label">Jabatan</label>
@@ -22,17 +22,17 @@
                     <option value="{{ $item->idRole }}" {{ old('idRole') == $item ? 'selected' : null }} > {{ $item->namaRole }} </option>
                     @endforeach
                 </select>
-                @error('idRole') </div class="text-muted">{{ $message }} </div>@enderror
+                @error('idRole') <div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
                 <label for="email" class="form-control-label">Email</label>
                 <input type="text" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" />
-                @error('email') </div class="text-muted">{{ $message }} </div>@enderror
+                @error('email') <div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
                 <label for="password" class="form-control-label">Password</label>
                 <input type="Password" name="password" value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" />
-                @error('password') </div class="text-muted">{{ $message }} </div>@enderror
+                @error('password') <div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit">Tambah Pegawai</button>

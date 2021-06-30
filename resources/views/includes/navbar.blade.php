@@ -15,4 +15,4 @@
     <ul class="navbar-nav ml-auto">
         <a class="nav-link" href="{{ 'logout' }}"><i class="fa fa-power-off"></i> Logout</a>    
     </ul>
-  </nav>
+</nav>
