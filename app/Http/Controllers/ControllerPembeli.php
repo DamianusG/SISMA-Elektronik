@@ -81,7 +81,7 @@ class ControllerPembeli extends Controller
     public function update(RequestPembeli $request, $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->namaBarang);
+        $data['slug'] = Str::slug($request->namaPembeli);
         $item = Pembeli::findOrFail($id);
         $item->update($data);
         return redirect()->route('pembeli.index');

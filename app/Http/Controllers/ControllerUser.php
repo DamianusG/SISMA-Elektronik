@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use App\Http\Requests\RequestUser;
 // use Illuminate\Support\Str;
 
@@ -15,7 +16,7 @@ class ControllerUser extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
         $items = User::all();
         return view('pages.pegawai.index')->with([
             'items' => $items
@@ -29,7 +30,10 @@ class ControllerUser extends Controller
      */
     public function create()
     {
-        return view('pages.pegawai.create');
+        $jabatan = Role::all();
+        return view('pages.pegawai.create')->with([
+            'jabatan' => $jabatan
+        ]);
     }
 
     /**
@@ -41,7 +45,7 @@ class ControllerUser extends Controller
     public function store(RequestUser $request)
     {
         $data = $request->all();
-        // $data['slug'] = Str::slug($request->name);
+        //$data['slug'] = Str::slug($request->name);
         User::create($data);
         return redirect()->route('pegawai.index');
     }
@@ -65,9 +69,11 @@ class ControllerUser extends Controller
      */
     public function edit($id)
     {
+        $jabatan = Role::all();
         $items = User::findOrFail($id);
         return view('pages.pegawai.edit')->with([
-            'items' => $items
+            'items' => $items,
+            'jabatan' => $jabatan
         ]);
     }
 
@@ -81,7 +87,7 @@ class ControllerUser extends Controller
     public function update(RequestUser $request, $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->namaBarang);
+        //$data['slug'] = Str::slug($request->name);
         $item = User::findOrFail($id);
         $item->update($data);
         return redirect()->route('pegawai.index');

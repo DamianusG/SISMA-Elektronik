@@ -8,18 +8,29 @@
     </div>
     <div class="card-body card-block">
         <form action="{{ route('pegawai.update',$items->id) }}" method="POST">
-            @method('PUT')
+            {{-- @method('PUT') --}}
             @csrf
             <div class="form-group">
                 <label for="name" class="form-control-label">Nama Pegawai</label>
                 <input type="text" name="name" value="{{ old('name') ? old('name') : $items->name }}" class="form-control @error('name') is-invalid @enderror" />
                 @error('name') </div class="text-muted">{{ $message }} </div>@enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
+                <label for="idRole" class="form-control-label">Jabatan</label>
+                <select name="idRole" class="form-control">
+                    <option value=""> - Pilih - </option>
+                    @foreach ($jabatan as $item)
+                    <option value="{{ $item->idRole }}"> {{ $item->namaRole }} </option>
+                    @endforeach
+                </select>
+                <input type="number" name="idRole" value="{{ old('idRole') ? old('idRole') : $items->idRole }}" class="form-control @error('idRole') is-invalid @enderror" />
+                @error('idRole') </div class="text-muted">{{ $message }} </div>@enderror
+            </div> --}}
+            {{-- <div class="form-group">
                 <label for="idRole" class="form-control-label">Jabatan</label>
                 <input type="number" name="idRole" value="{{ old('idRole') ? old('idRole') : $items->idRole }}" class="form-control @error('idRole') is-invalid @enderror" />
                 @error('idRole') </div class="text-muted">{{ $message }} </div>@enderror
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="email" class="form-control-label">Email</label>
                 <input type="text" name="email" value="{{ old('email') ? old('email') : $items->email }}" class="form-control @error('email') is-invalid @enderror" />

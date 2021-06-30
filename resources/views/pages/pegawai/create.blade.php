@@ -16,7 +16,12 @@
             </div>
             <div class="form-group">
                 <label for="idRole" class="form-control-label">Jabatan</label>
-                <input type="number" name="idRole" value="{{ old('idRole') }}" class="form-control @error('idRole') is-invalid @enderror" />
+                <select name="idRole" class="form-control @error('idRole') is-invalid @enderror">
+                    <option value=""> - Pilih - </option>
+                    @foreach ($jabatan as $item)
+                    <option value="{{ $item->idRole }}" {{ old('idRole') == $item ? 'selected' : null }} > {{ $item->namaRole }} </option>
+                    @endforeach
+                </select>
                 @error('idRole') </div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
@@ -30,7 +35,7 @@
                 @error('password') </div class="text-muted">{{ $message }} </div>@enderror
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit">Tambah Barang</button>
+                <button class="btn btn-primary btn-block" type="submit">Tambah Pegawai</button>
             </div>
         </form>
     </div>
